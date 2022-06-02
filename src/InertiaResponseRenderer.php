@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Arcanist;
 
@@ -40,7 +42,7 @@ class InertiaResponseRenderer implements ResponseRenderer
 
         return redirect()->route(
             'wizard.' . $wizard::$slug . '.show',
-            [$wizard->getId(), $step->slug]
+            [$step->slug]
         );
     }
 
@@ -51,7 +53,7 @@ class InertiaResponseRenderer implements ResponseRenderer
     ): Response | Responsable | Renderable {
         return redirect()->route(
             'wizard.' . $wizard::$slug . '.show',
-            [$wizard->getId(), $step->slug]
+            [$step->slug]
         )->withErrors(['wizard' => $error]);
     }
 }
